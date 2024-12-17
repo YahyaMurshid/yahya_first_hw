@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class YahyaCustomButton extends StatelessWidget {
   final String text;
   final Color buttonColor;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const YahyaCustomButton({
     Key? key,
