@@ -7,24 +7,27 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:yahya_button_and_text_filed/app/yahya_app.dart';
 
-import 'package:yahya_button_and_text_filed/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Settings screen test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const YahyaApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // التحقق من وجود عنوان الإعدادات
+    expect(find.text('الإعدادات'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // التحقق من وجود زر تغيير المظهر
+    expect(find.text('تغيير المظهر'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // التحقق من وجود زر تغيير اللغة
+    expect(find.text('تغيير اللغة'), findsOneWidget);
+
+    // التحقق من وجود زر التبديل (Switch)
+    expect(find.byType(Switch), findsOneWidget);
+
+    // التحقق من وجود القائمة المنسدلة
+    expect(find.byType(DropdownButton<String>), findsOneWidget);
   });
 }

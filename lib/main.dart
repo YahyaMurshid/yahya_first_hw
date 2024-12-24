@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
-import 'screens/yahya_text_fields_screen.dart';
+import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'app/core/localization/translations.dart';
+import 'app/modules/settings/controllers/theme_controller.dart';
+import 'app/modules/settings/controllers/language_controller.dart';
+import 'app/modules/settings/views/settings_screen.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() async {
+  await GetStorage.init();
+  
+  final themeController = Get.put(ThemeController());
+  final languageController = Get.put(LanguageController());
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'تطبيق الحقول النصية',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'Cairo',
-      ),
-      home: const YahyaTextFieldsScreen(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
+  runApp(
+    GetMaterialApp(
+      title: 'Yahya App',
+      translations: AppTranslations(),
+      locale: languageController.locale,
+      fallbackLocale: const Locale('ar'),
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
+      themeMode: themeController.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+      home: const SettingsScreen(),
+    ),
+  );
 }

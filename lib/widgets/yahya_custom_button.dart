@@ -6,11 +6,11 @@ class YahyaCustomButton extends StatelessWidget {
   final VoidCallback? onPressed;
 
   const YahyaCustomButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.buttonColor,
-    required this.onPressed,
-  }) : super(key: key);
+    this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +22,7 @@ class YahyaCustomButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),
+        elevation: 3,
       ),
       child: Text(
         text,

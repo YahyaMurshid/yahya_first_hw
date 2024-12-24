@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/custom_button.dart';
 
 class TextFieldsScreen extends StatefulWidget {
-  const TextFieldsScreen({Key? key}) : super(key: key);
+  const TextFieldsScreen({super.key});
 
   @override
   State<TextFieldsScreen> createState() => _TextFieldsScreenState();
@@ -44,7 +44,7 @@ class _TextFieldsScreenState extends State<TextFieldsScreen> {
                   hintText: 'أدخل النص هنا',
                 ),
               ),
-            )).toList(),
+            )),
             const SizedBox(height: 20),
             CustomButton(
               text: 'مسح الحقول',

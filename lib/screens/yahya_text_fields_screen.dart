@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/yahya_custom_button.dart';
 
 class YahyaTextFieldsScreen extends StatefulWidget {
-  const YahyaTextFieldsScreen({Key? key}) : super(key: key);
+  const YahyaTextFieldsScreen({super.key});
 
   @override
   State<YahyaTextFieldsScreen> createState() => _YahyaTextFieldsScreenState();
